@@ -1,0 +1,40 @@
+drop database prodapimgtdb;
+drop database prodstatsdb;
+drop database prodmbdb;
+drop database produmdb;
+drop database prodregdb;
+drop database proddepdb;
+drop database prodratedb;
+drop database activiti;
+
+
+create database prodapimgtdb;
+use prodapimgtdb;
+source <AM-HOME>/dbscripts/apimgt/mysql.sql;
+
+create database prodstatsdb;
+use prodstatsdb;
+source <AM-HOME>/dbscripts/dep-hub/mysql/stats_db.sql;
+
+create database prodmbdb;
+use prodmbdb;
+source <AM-HOME>/dbscripts/mb-store/mysql-mb.sql;
+
+create database produmdb;
+use produmdb;
+source <AM-HOME>/dbscripts/mysql5.7.sql;
+
+create database prodregdb;
+use prodregdb;
+source <AM-HOME>/dbscripts/mysql5.7.sql;
+
+create database proddepdb;
+use proddepdb;
+source <AM-HOME>/dbscripts/dep-hub/mysql/dep_db.sql;
+
+create database prodratedb;
+use prodratedb;
+source <AM-HOME>/dbscripts/dep-hub/mysql/rate_db.sql;
+
+create database activiti;
+
