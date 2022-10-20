@@ -10,7 +10,7 @@ drop database activiti;
 
 create database prodapimgtdb;
 use prodapimgtdb;
-source <AM-HOME>/dbscripts/apimgt/mysql.sql;
+source <AM-HOME>/dbscripts/apimgt/mysql5.7.sql;
 
 create database prodstatsdb;
 use prodstatsdb;
