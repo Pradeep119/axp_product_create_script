@@ -1,11 +1,11 @@
 <datasources-configuration xmlns:svns="http://org.wso2.securevault/configuration">
-  
+
     <providers>
         <provider>org.wso2.carbon.ndatasource.rdbms.RDBMSDataSourceReader</provider>
     </providers>
-  
+
     <datasources>
-      
+
         <datasource>
             <name>WSO2_CARBON_DB</name>
             <description>The datasource used for registry and user manager</description>
@@ -14,7 +14,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:h2:./repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000</url>
+                    <url>jdbc:h2:repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE</url>
                     <username>wso2carbon</username>
                     <password>wso2carbon</password>
                     <driverClassName>org.h2.Driver</driverClassName>
@@ -23,12 +23,11 @@
                     <testOnBorrow>true</testOnBorrow>
                     <validationQuery>SELECT 1</validationQuery>
                     <validationInterval>30000</validationInterval>
-                    <defaultAutoCommit>false</defaultAutoCommit>
                 </configuration>
             </definition>
         </datasource>
-        
-	<datasource>
+
+        <datasource>
             <name>WSO2AM_DB</name>
             <description>The datasource used for API Manager database</description>
             <jndiConfig>
@@ -49,7 +48,7 @@
             </definition>
         </datasource>
 
-        <datasource>
+         <datasource>
             <name>WSO2AM_STATS_DB</name>
             <description>The datasource used for getting statistics to API Manager</description>
             <jndiConfig>
@@ -68,7 +67,7 @@
                     <validationInterval>30000</validationInterval>
                 </configuration>
             </definition>
-        </datasource>
+         </datasource>
 
         <datasource>
             <name>WSO2_MB_STORE_DB</name>
@@ -87,6 +86,7 @@
                     <testOnBorrow>true</testOnBorrow>
                     <validationQuery>SELECT 1</validationQuery>
                     <validationInterval>30000</validationInterval>
+                    <defaultAutoCommit>false</defaultAutoCommit>
                 </configuration>
             </definition>
         </datasource>
@@ -138,10 +138,10 @@
             <name>SAMPLE_DATA_SOURCE</name>
             <jndiConfig>
                 <name></name>
-                <environment>
+                <properties>
                     <property name="java.naming.factory.initial"></property>
                     <property name="java.naming.provider.url"></property>
-                </environment>
+                </properties>
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
