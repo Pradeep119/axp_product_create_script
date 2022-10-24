@@ -105,14 +105,13 @@ def gwSetup():
 
 def controlPlaneSetup():
     runShell(['chmod', '777', CP_HOME_DIR + "/bin/profileSetup.sh", CP_HOME_DIR + "/bin/axpserver.sh"])
-    runShell(['cp', CP_HOME_DIR + "/repository/deployment/server/webapps/internal#data#v1.war", GW_HOME_DIR])
+    runShell(['cp', CP_HOME_DIR + "/repository/deployment/server/webapps/internal#data#v1.war", CP_HOME_DIR])
     runShell(['sh', CP_HOME_DIR + "/bin" + "/profileSetup.sh", '-Dprofile=control-plane'])
     runShell(['mv', CP_HOME_DIR + "/internal#data#v1.war", CP_HOME_DIR + "/repository/deployment/server/webapps/"])
 
     runShell(['rm', '-rf', CP_HOME_DIR + "/repository/conf/deployment.toml"])
     runShell(['mv', CP_HOME_DIR + "/repository/conf/deployment_CP.toml",
               CP_HOME_DIR + "/repository/conf/deployment.toml"])
-    runShell(['sh', GW_HOME_DIR + "/bin" + "/profileSetup.sh", '-Dprofile=control-plane'])
 
     downloadMysqlConnector(CP_HOME_DIR)
 
