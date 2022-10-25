@@ -1,40 +1,39 @@
-drop database prodapimgtdb;
-drop database prodstatsdb;
-drop database prodmbdb;
-drop database produmdb;
-drop database prodregdb;
-drop database proddepdb;
+drop database igw_apimgtdb;
+drop database igw_statdb;
+drop database igw_mbstoredb;
+drop database igw_userstoredb;
+drop database igw_regdb;
+drop database igw_depdb;
 drop database prodratedb;
-drop database activiti;
+drop database igw_activity;
 
 
-create database prodapimgtdb;
-use prodapimgtdb;
+create database igw_apimgtdb;
+use igw_apimgtdb;
 source <AM-HOME>/dbscripts/apimgt/mysql5.7.sql;
 
-create database prodstatsdb;
-use prodstatsdb;
+create database igw_statdb;
+use igw_statdb;
 source <AM-HOME>/dbscripts/dep-hub/mysql/stats_db.sql;
 
-create database prodmbdb;
-use prodmbdb;
+create database igw_mbstoredb;
+use igw_mbstoredb;
 source <AM-HOME>/dbscripts/mb-store/mysql-mb.sql;
 
-create database produmdb;
-use produmdb;
+create database igw_userstoredb;
+use igw_userstoredb;
 source <AM-HOME>/dbscripts/mysql5.7.sql;
 
-create database prodregdb;
-use prodregdb;
+create database igw_regdb;
+use igw_regdb;
 source <AM-HOME>/dbscripts/mysql5.7.sql;
 
-create database proddepdb;
-use proddepdb;
+create database igw_depdb;
+use igw_depdb;
 source <AM-HOME>/dbscripts/dep-hub/mysql/dep_db.sql;
 
 create database prodratedb;
 use prodratedb;
 source <AM-HOME>/dbscripts/dep-hub/mysql/rate_db.sql;
 
-create database activiti;
-
+create database igw_activity;
