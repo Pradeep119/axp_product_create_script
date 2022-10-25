@@ -4,7 +4,7 @@ drop database igw_mbstoredb;
 drop database igw_userstoredb;
 drop database igw_regdb;
 drop database igw_depdb;
-drop database prodratedb;
+drop database igw_ratedb;
 drop database igw_activity;
 
 
@@ -32,8 +32,8 @@ create database igw_depdb;
 use igw_depdb;
 source <AM-HOME>/dbscripts/dep-hub/mysql/dep_db.sql;
 
-create database prodratedb;
-use prodratedb;
+create database igw_ratedb;
+use igw_ratedb;
 source <AM-HOME>/dbscripts/dep-hub/mysql/rate_db.sql;
 
 create database igw_activity;
