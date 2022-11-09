@@ -155,6 +155,7 @@ def runShell(cmdArray):
 
 
 def downloadMysqlConnector(packDir):
+    #if you using openjdk 8 use this link istead of mysql connector 8 https://repo.maven.apache.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar
     mysqlConnectorUrl = "https://repo.maven.apache.org/maven2/mysql/mysql-connector-java/8.0.30/mysql-connector-java-8.0.30.jar"
     runShell(['wget', '-P', packDir + "/lib", mysqlConnectorUrl])
 
