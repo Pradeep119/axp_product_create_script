@@ -7,9 +7,9 @@ import urllib
 import toml
 
 # configure this values
-parentDir = "/home/pradeepk/Documents/Tasks/base_prodcut_tasks/script-for-410/pack_generate_try4/product"
-axpProductZipPath = "/home/pradeepk/Documents/Tasks/base_prodcut_tasks/script-for-410/pack_generate_try4/wso2am-4.1.0.zip"
-kmProductZipPath = "/home/pradeepk/Documents/Tasks/base_prodcut_tasks/script-for-410/pack_generate_try4/wso2is-5.11.0.zip"
+parentDir = "/home/pradeepk/Documents/Sprint_Tasks/BaseProduct/sprint_42/distributed-wum-level-40/product"
+axpProductZipPath = "/home/pradeepk/Documents/Sprint_Tasks/BaseProduct/sprint_42/distributed-wum-level-40/axp-dep-7.0.3-SNAPSHOT.zip"
+kmProductZipPath = "/home/pradeepk/Documents/Sprint_Tasks/BaseProduct/sprint_42/distributed-wum-level-40/wso2is-5.11.0.zip"
 dbUsername = 'root'
 dbPassword = 'root123'
 apiMgtDb = 'test_apimgtdb'
@@ -100,7 +100,7 @@ def gwSetup():
     toml.dump(data, f)
     f.close()
 
-    # updateDatasourceDbToml('WSO2TELCO_DEP_DB', GW_HOME_DIR, WSO2TELCO_DEP_DB)
+    updateDatasourceDbToml('WSO2TELCO_DEP_DB', GW_HOME_DIR, WSO2TELCO_DEP_DB)
 
 
 def controlPlaneSetup():
@@ -123,10 +123,10 @@ def controlPlaneSetup():
     toml.dump(data, f)
     f.close()
 
-    # updateDatasourceDbToml('WSO2TELCO_DEP_DB', CP_HOME_DIR, WSO2TELCO_DEP_DB)
-    # updateDatasourceDbToml('ACTIVITI_DB', CP_HOME_DIR, ACTIVITI_DB)
-    # updateDatasourceDbToml('WSO2TELCO_RATE_DB', CP_HOME_DIR, WSO2TELCO_RATE_DB)
-    # updateDatasourceDbToml('WSO2AM_STATS_DB', CP_HOME_DIR, WSO2AM_STATS_DB)
+    updateDatasourceDbToml('WSO2TELCO_DEP_DB', CP_HOME_DIR, WSO2TELCO_DEP_DB)
+    updateDatasourceDbToml('ACTIVITI_DB', CP_HOME_DIR, ACTIVITI_DB)
+    updateDatasourceDbToml('WSO2TELCO_RATE_DB', CP_HOME_DIR, WSO2TELCO_RATE_DB)
+    updateDatasourceDbToml('WSO2AM_STATS_DB', CP_HOME_DIR, WSO2AM_STATS_DB)
 
 
 def kmSetup():
@@ -139,7 +139,7 @@ def kmSetup():
     data = toml.load(KM_HOME_DIR + "/repository/conf/deployment.toml")
     updateDBToml(data, 'identity_db', apiMgtDb)
     updateDBToml(data, 'shared_db', sharedDb)
-    updateDBToml(data, 'apim_db', apiMgtDb)
+    #updateDBToml(data, 'apim_db', apiMgtDb)
     updateDBToml(data, 'user', userStoreDb)
     f = open(KM_HOME_DIR + "/repository/conf/deployment.toml", 'w')
     toml.dump(data, f)
@@ -155,8 +155,7 @@ def runShell(cmdArray):
 
 
 def downloadMysqlConnector(packDir):
-    #if you using openjdk 8 use this link istead of mysql connector 8 https://repo.maven.apache.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar
-    mysqlConnectorUrl = "https://repo.maven.apache.org/maven2/mysql/mysql-connector-java/8.0.30/mysql-connector-java-8.0.30.jar"
+    mysqlConnectorUrl = "https://repo.maven.apache.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar"
     runShell(['wget', '-P', packDir + "/lib", mysqlConnectorUrl])
 
 
